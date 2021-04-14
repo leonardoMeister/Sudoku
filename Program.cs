@@ -92,7 +92,14 @@ namespace Sudoku
 
         public int validar(int[] bloco)
         {
-            if (bloco[0] == bloco[1] || bloco[0] == bloco[2] || bloco[0] == bloco[3] || bloco[0] == bloco[4] || bloco[0] == bloco[5] || bloco[0] == bloco[6] || bloco[0] == bloco[7] || bloco[0] == bloco[8])
+            if (bloco[0] == bloco[1] || bloco[0] == bloco[2] || bloco[0] == bloco[3] || bloco[0] == bloco[4] || bloco[0] == bloco[5] || bloco[0] == bloco[6] || bloco[0] == bloco[7] || bloco[0] == bloco[8]
+                || bloco[1] == bloco[2] || bloco[1] == bloco[3] || bloco[1] == bloco[4] || bloco[1] == bloco[5] || bloco[1] == bloco[6] || bloco[1] == bloco[7] || bloco[1] == bloco[8]
+                || bloco[2] == bloco[3] || bloco[2] == bloco[4] || bloco[2] == bloco[5] || bloco[2] == bloco[6] || bloco[2] == bloco[7] || bloco[2] == bloco[8]
+                || bloco[3] == bloco[4] || bloco[3] == bloco[5] || bloco[3] == bloco[6] || bloco[3] == bloco[7] || bloco[3] == bloco[8]
+                || bloco[4] == bloco[5] || bloco[4] == bloco[6] || bloco[4] == bloco[7] || bloco[4] == bloco[8]
+                || bloco[5] == bloco[6] || bloco[5] == bloco[7] || bloco[5] == bloco[8]
+                || bloco[6] == bloco[7] || bloco[6] == bloco[8]
+                || bloco[7] == bloco[8])
                 return 1;
 
             return 0;
