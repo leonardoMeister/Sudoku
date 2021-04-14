@@ -9,16 +9,6 @@ namespace Sudoku
 {
     class Program
     {
-        int[] bloco1;
-        int[] bloco2;
-        int[] bloco3;
-        int[] bloco4;
-        int[] bloco5;
-        int[] bloco6;
-        int[] bloco7;
-        int[] bloco8;
-        int[] bloco9;
-
         int[,] matrixSudoku = new int[9,9];
         int simNao = 0;
 
@@ -35,9 +25,9 @@ namespace Sudoku
                               3 6 5 8 1 7 9 2 4
                               8 7 9 6 4 2 1 5 3 ";
             CriarMatriz(sudoku);
+
             ValidandoLinhasColunas();
-            criarBlocos();
-            ValidarBlocos();
+            criarValidarBlocos();
             
             if (simNao > 0)
             {
@@ -49,19 +39,6 @@ namespace Sudoku
             }
 
             Console.Read();
-        }
-        public void ValidarBlocos()
-        {
-            simNao += validar(bloco1);
-            simNao += validar(bloco2);
-            simNao += validar(bloco3);
-            simNao += validar(bloco4);
-            simNao += validar(bloco5);
-            simNao += validar(bloco6);
-            simNao += validar(bloco7);
-            simNao += validar(bloco8);
-            simNao += validar(bloco9);
-
         }
 
         private void CriarMatriz(string sudoku)
@@ -97,18 +74,11 @@ namespace Sudoku
             return 0;
         }
 
-        private void criarBlocos()
+        private void criarValidarBlocos()
         {
-            bloco1 = new int[9];
-            bloco2 = new int[9];
-            bloco3 = new int[9];
-            bloco4 = new int[9];
-            bloco5 = new int[9];
-            bloco6 = new int[9];
-            bloco7 = new int[9];
-            bloco8 = new int[9];
-            bloco9 = new int[9];
-            int aux = 0;
+           int[] bloco1 = new int[9];
+            
+            int aux ;
 
             aux = 0;
             for (int i = 0; i < 3; i++)
@@ -119,78 +89,95 @@ namespace Sudoku
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco2[aux] = matrixSudoku[i + 3, f];
+                    bloco1[aux] = matrixSudoku[i + 3, f];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco3[aux] = matrixSudoku[i + 6, f];
+                    bloco1[aux] = matrixSudoku[i + 6, f];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco4[aux] = matrixSudoku[i, f + 3];
+                    bloco1[aux] = matrixSudoku[i, f + 3];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco5[aux] = matrixSudoku[i, f + 6];
+                    bloco1[aux] = matrixSudoku[i, f + 6];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco6[aux] = matrixSudoku[i + 3, f + 3];
+                    bloco1[aux] = matrixSudoku[i + 3, f + 3];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco7[aux] = matrixSudoku[i + 3, f + 6];
+                    bloco1[aux] = matrixSudoku[i + 3, f + 6];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco8[aux] = matrixSudoku[i + 6, f + 3];
+                    bloco1[aux] = matrixSudoku[i + 6, f + 3];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
+
             aux = 0;
             for (int i = 0; i < 3; i++)
             {
                 for (int f = 0; f < 3; f++)
                 {
-                    bloco9[aux] = matrixSudoku[i + 6, f + 6];
+                    bloco1[aux] = matrixSudoku[i + 6, f + 6];
                     aux++;
                 }
             }
+            simNao += validar(bloco1);
         }
 
         private void ValidandoLinhasColunas()
